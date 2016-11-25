@@ -18,12 +18,39 @@ extension GameScene {
         NotificationCenter.default.addObserver(self, selector: Selector("connectControllers"), name: NSNotification.Name.GCControllerDidConnect, object: nil)
         NotificationCenter.default.addObserver(self, selector: Selector("controllerDisconnected"), name: NSNotification.Name.GCControllerDidDisconnect, object: nil)
     }
-    
+    func getController() -> GCController {
+        var gp: GCController = GCController.controllers()[0]
+        for controller in GCController.controllers() {
+            if (controller.extendedGamepad != nil ) {
+                controller.extendedGamepad?.valueChangedHandler = nil
+                gp = controller
+            }  else if (controller.gamepad != nil ) {
+                controller.gamepad?.valueChangedHandler = nil
+                gp = controller
+            }
+        }
+        /*
+        #if os(tvOS)
+            for controller in GCController.controllers() {
+                if ( controller.extendedGamepad != nil) {
+                    //ignore
+                } else if ( controller.gamepad != nil) {
+                    //ignore
+                } else if ( controller.microGamepad != nil) {
+                    controller.microGamepad?.valueChangedHandler = nil
+                    gp = controller
+                }
+            }
+        #endif
+         */
+        return gp
+    }
     func connectControllers(){
         self.isPaused = false
         for controller in GCController.controllers() {
             if (controller.extendedGamepad != nil ) {
                 controller.extendedGamepad?.valueChangedHandler = nil
+                self.gamePad = controller
                 setUpExtendedController (controller: controller)
             }  else if (controller.gamepad != nil ) {
                 controller.gamepad?.valueChangedHandler = nil
@@ -56,19 +83,19 @@ extension GameScene {
             
             if (gamepad.leftThumbstick == element) {
                 
-                self.moveDot(CGFloat(gamepad.leftThumbstick.xAxis.value),deltaY: CGFloat(gamepad.leftThumbstick.yAxis.value))
+                //self.moveDot(CGFloat(gamepad.leftThumbstick.xAxis.value),deltaY: CGFloat(gamepad.leftThumbstick.yAxis.value))
                 
                 if (gamepad.leftThumbstick.left.value > 0.2) {
-                    print("isPressed leftThumbstick left")
+                    //print("isPressed leftThumbstick left")
                 } else if (gamepad.leftThumbstick.left.isPressed == false) {
-                    print ("left go of leftThumbstick left")
+                    //print ("left go of leftThumbstick left")
                 }
             } else if (gamepad.rightThumbstick == element) {
                 if (gamepad.rightThumbstick.right.value > 0.2) {
-                    print("isPressed rightThumbstick right")
+                    //print("isPressed rightThumbstick right")
                     //self.moveDot(CGFloat(gamepad.rightThumbstick.left.value),deltaY: 0)
                 } else if (gamepad.rightThumbstick.right.isPressed == false) {
-                    print ("left go of rightThumbstick right")
+                    //print ("left go of rightThumbstick right")
                 }
             } else if (gamepad.dpad == element) {
                 if (gamepad.dpad.right.isPressed == true){

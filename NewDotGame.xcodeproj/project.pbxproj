@@ -14,6 +14,8 @@
 		21E441A01DB1770F003E4EBE /* Game.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21E4419F1DB1770F003E4EBE /* Game.xcassets */; };
 		21E441A31DB1770F003E4EBE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21E441A11DB1770F003E4EBE /* Main.storyboard */; };
 		21E441A51DB1770F003E4EBE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21E441A41DB1770F003E4EBE /* Assets.xcassets */; };
+		21E441AD1DB1AB1D003E4EBE /* GameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E441AC1DB1AB1D003E4EBE /* GameController.framework */; };
+		21E441AF1DB1AB7E003E4EBE /* GameScene_Controllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E441AE1DB1AB7E003E4EBE /* GameScene_Controllers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		21E441A21DB1770F003E4EBE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		21E441A41DB1770F003E4EBE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		21E441A61DB1770F003E4EBE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		21E441AC1DB1AB1D003E4EBE /* GameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameController.framework; path = System/Library/Frameworks/GameController.framework; sourceTree = SDKROOT; };
+		21E441AE1DB1AB7E003E4EBE /* GameScene_Controllers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GameScene_Controllers.swift; path = ../GameScene_Controllers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21E441AD1DB1AB1D003E4EBE /* GameController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +47,7 @@
 		21E4418B1DB1770F003E4EBE = {
 			isa = PBXGroup;
 			children = (
+				21E441AC1DB1AB1D003E4EBE /* GameController.framework */,
 				21E441961DB1770F003E4EBE /* NewDotGame */,
 				21E441951DB1770F003E4EBE /* Products */,
 			);
@@ -58,6 +64,7 @@
 		21E441961DB1770F003E4EBE /* NewDotGame */ = {
 			isa = PBXGroup;
 			children = (
+				21E441AE1DB1AB7E003E4EBE /* GameScene_Controllers.swift */,
 				21E441971DB1770F003E4EBE /* AppDelegate.swift */,
 				21E441991DB1770F003E4EBE /* GameScene.sks */,
 				21E4419B1DB1770F003E4EBE /* GameScene.swift */,
@@ -102,6 +109,12 @@
 				TargetAttributes = {
 					21E441931DB1770F003E4EBE = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = 3FXJE34AFS;
+						SystemCapabilities = {
+							com.apple.GameControllers.appletvos = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -142,6 +155,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21E441AF1DB1AB7E003E4EBE /* GameScene_Controllers.swift in Sources */,
 				21E4419C1DB1770F003E4EBE /* GameScene.swift in Sources */,
 				21E4419E1DB1770F003E4EBE /* GameViewController.swift in Sources */,
 				21E441981DB1770F003E4EBE /* AppDelegate.swift in Sources */,
@@ -248,10 +262,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				INFOPLIST_FILE = NewDotGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Keesey.NewDotGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -260,10 +277,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				INFOPLIST_FILE = NewDotGame/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Keesey.NewDotGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -286,6 +306,7 @@
 				21E441AB1DB1770F003E4EBE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

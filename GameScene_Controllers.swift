@@ -48,6 +48,7 @@ extension GameScene {
     func connectControllers(){
         self.isPaused = false
         for controller in GCController.controllers() {
+            print(controller)
             if (controller.extendedGamepad != nil ) {
                 controller.extendedGamepad?.valueChangedHandler = nil
                 self.gamePad = controller
@@ -132,8 +133,10 @@ extension GameScene {
             else if (gamepad.rightTrigger == element){
                 if ( gamepad.rightTrigger.isPressed == true){
                     print("rightTrigger isPressed")
+                    self.speedBoost()
                 } else if ( gamepad.rightTrigger.isPressed == false) {
                     print("rightTrigger released")
+                    self.resetSpeed()
                 }
             } else if ( gamepad.buttonA == element) {
                 if ( gamepad.buttonA.isPressed == true){

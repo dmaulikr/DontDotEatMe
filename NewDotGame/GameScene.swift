@@ -17,7 +17,7 @@ class GameScene: SKScene {
     // Persist the initial touch position of the remote
     var touchPositionX: CGFloat = 0.0
     var touchPositionY: CGFloat = 0.0
-    let dotSpeed: CGFloat = 1.85
+    var dotSpeed: CGFloat = 1.85
     
     let playerDot = SKSpriteNode(imageNamed: "playerFace")
     var smallDots:[SKSpriteNode] = []
@@ -143,18 +143,18 @@ class GameScene: SKScene {
         var okDots:[SKSpriteNode] = []
         //print(CGFloat(1 + 1 * score))
         for smallDot in smallDots {
-            /*
+            
             var Ay = smallDot.position.y + (smallDot.size.height + CGFloat(1 + 1 * score))
             var Bx = smallDot.position.x + (smallDot.size.width  + CGFloat(1 + 1 * score))
             var Cy = smallDot.position.y - (smallDot.size.height - CGFloat(1 + 1 * score))
             var Dx = smallDot.position.x - (smallDot.size.width - CGFloat(1 + 1 * score))
             //print(Ay,Bx,Cy,Dx)
-            */
+            /*
             var Ay = smallDot.position.y + smallDot.size.height * 2
             var Bx = smallDot.position.x + smallDot.size.width * 2
             var Cy = smallDot.position.y - smallDot.size.height * 2
             var Dx = smallDot.position.x - smallDot.size.width * 2
-            
+            */
             
             
             if(playerDot.position.x <= Bx && playerDot.position.x >= Dx && playerDot.position.y <= Ay && playerDot.position.y >= Cy
@@ -208,6 +208,13 @@ class GameScene: SKScene {
             addChild(sprite)
         }
         
+    }
+    
+    func speedBoost(){
+        dotSpeed = 3.85
+    }
+    func resetSpeed(){
+        dotSpeed = 1.85
     }
     
     func drawSprite(){

@@ -110,6 +110,7 @@
 					21E441931DB1770F003E4EBE = {
 						CreatedOnToolsVersion = 7.2.1;
 						DevelopmentTeam = 3FXJE34AFS;
+						LastSwiftMigration = 0800;
 						SystemCapabilities = {
 							com.apple.GameControllers.appletvos = {
 								enabled = 1;
@@ -269,6 +270,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Keesey.NewDotGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -284,6 +286,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Keesey.NewDotGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
